@@ -56,7 +56,7 @@ class PrototypesController < ApplicationController
   private
 
   def prototypes_params
-    params.require(:prototype).permit(:title, :catch_copy,:folder_id).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy,:folder_id ,:level_id).merge(user_id: current_user.id)
   end
   
   def set_prototype

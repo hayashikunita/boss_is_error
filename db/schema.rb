@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_104022) do
     t.text "title", null: false
     t.text "catch_copy", null: false
     t.integer "folder_id", null: false
+    t.integer "level_id", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_prototypes_on_user_id"
   end
