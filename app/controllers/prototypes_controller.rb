@@ -53,7 +53,13 @@ class PrototypesController < ApplicationController
   end
 
 
+  def search
+    @prototypes = Prototype.search(params[:keyword])
+  end
+
+
   private
+
 
   def prototypes_params
     params.require(:prototype).permit(:title, :catch_copy,:folder_id ,:level_id).merge(user_id: current_user.id)
