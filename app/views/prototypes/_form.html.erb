@@ -1,0 +1,21 @@
+<%= form_with model: @prototype, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "エラー内容" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catch_copy, "エラーの解決策" %><br />
+    <%= f.text_area :catch_copy, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :folder, "フォルダ" %>
+    <%= f.collection_select(:folder_id, Folder.all, :id, :name, {}) %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
