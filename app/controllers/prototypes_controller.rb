@@ -1,11 +1,10 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:destory]
   before_action :set_prototype, only: [:show, :edit, :update]
+  before_action :search_prototype, only: [:index, :search]
 
   def index
     @prototypes = Prototype.all
-    # @user = User.find(params[:id])
-    # @prototypes = @user.prototypes
   end
 
   def new
@@ -14,9 +13,8 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototypes_params)
-
     if @prototype.save
-      redirect_to prototype_path(@prototype.id)
+       redirect_to prototype_path(@prototype.id)
     else
       render :new
     end
@@ -25,7 +23,6 @@ class PrototypesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)
-
     # @prototype = Prototype.find(params[:id])
   end
 
@@ -52,21 +49,23 @@ class PrototypesController < ApplicationController
     end
   end
 
-
   def search
     @prototypes = Prototype.search(params[:keyword])
+    @prototype = @p.result
   end
-
 
   private
 
-
   def prototypes_params
-    params.require(:prototype).permit(:title, :catch_copy,:folder_id ,:level_id).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy,:folder_id ,:level_id ,:errortittle_id).merge(user_id: current_user.id)
   end
   
   def set_prototype
     @prototype = Prototype.find(params[:id])
+  end
+
+  def search_prototype
+    @p = Prototype.ransack(params[:q])  # 検索オブジェクトを生成
   end
 
 end

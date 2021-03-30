@@ -2,8 +2,17 @@
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
-<div class="contents row">
-  <% @prototypes.each do |prototype| %>
+
+<% if @prototype.length !=0 %>
+  <% @prototype.each do |prototype| %>
     <%= render partial: 'prototypes/prototype', locals: { prototype: prototype } %>
+
+      <%# <%= result.size %>
+      <%# <%= result.status %>
+      <%# <%= result.price %>
+      <%# <%= result.category.name %> 
   <% end %>
-</div>
+<% else %>
+  該当する商品はありません
+<% end %>
+<%= @prototype.length %>

@@ -1,7 +1,7 @@
 class Folder < ActiveHash::Base
   self.data = [
     {id: 0, name: '--'},
-    {id: 1, name: 'all'},
+    {id: 1, name: 'others'},
     {id: 2, name: 'app/controllers'},
     {id: 3, name: 'app/models'},
     {id: 4, name: 'app/javascripts'},

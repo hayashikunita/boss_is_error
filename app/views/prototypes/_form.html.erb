@@ -1,4 +1,11 @@
 <%= form_with model: @prototype, local: true do |f|%>
+
+
+  <div class="field">
+    <%= f.label :errortittle, "エラータイトル" %>
+    <%= f.collection_select(:errortittle_id, Errortittle.all, :id, :name, {}) %>
+  </div>
+
   <div class="field">
     <%= f.label :title, "エラー内容" %><br />
     <%= f.text_field :title %>
