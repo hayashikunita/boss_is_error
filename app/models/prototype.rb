@@ -4,7 +4,7 @@ class Prototype < ApplicationRecord
   belongs_to :level
   belongs_to :errortittle
   belongs_to_active_hash :errortittle
-  belongs_to :category
+  # belongs_to :category
 
   has_many :comments,   dependent: :destroy
   belongs_to :user

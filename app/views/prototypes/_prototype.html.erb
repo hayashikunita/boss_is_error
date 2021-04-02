@@ -2,8 +2,11 @@
   <div class="card__body">
         <%= link_to prototype.title, prototype_path(prototype.id), class: :card__title,method: :get %>
         <p class="card__summary">
-          <%= prototype.catch_copy %>
+        <%= prototype.errortittle.name%>
+        <%= prototype.folder.name%>
         </p>
         <%= link_to prototype.user.name, user_path(prototype.user.id), class: :card__user ,method: :get %>
   </div>
 </div>
+
+

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProtoSpace</title>
+    <title>Boss is error</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,44 +15,53 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to image_tag("logo.png", class: :logo), prototypes_path %>
-
-            <%= form_with(url: search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
-                <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-                <%= form.submit "検索", class: "search-btn" %> 
-            <% end %>
-
-            <h1>
-            商品検索
-            </h1>
-            <%= search_form_for @p, url: search_prototypes_path do |f| %>
-              <%= f.label :folder_id_eq, 'フォルダ' %>
-              <%= f.collection_select :folder_id_eq, Folder.all, :id, :name,  include_blank: '指定なし' %>
-              <%= f.submit '検索' %>
-            <% end %>
-
+                <div class="nav__left__1">
+                    <%= link_to image_tag("logo.png", class: :logo), prototypes_path %>
+                </div>
+                <div class="nav__left__2">
+                    <%= form_with(url: search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
+                    <%= "BOSSを" %>
+                        <%= form.submit "検索", class: "search-btn" %><br>
+                        <%= form.text_field :keyword, placeholder: "フリーワード", class: "search-input" %>
+                    <% end %>
+                </div>
+                <div class="nav__left__3">
+                    <%= search_form_for @p, url: search_prototypes_path do |f| %>
+                    <%= "BOSSを" %><%= f.submit '検索', class: "search-btn" %>
+                        <br>
+                        <%= f.label :folder_id_eq, 'BOSSの住所' %>
+                        <%= f.collection_select :folder_id_eq, Folder.all, :id, :name,  include_blank: '指定なし' %><br>
+                        <%= f.label :errortittle_id_eq, 'BOSSの名前' %>
+                        <%= f.collection_select :errortittle_id_eq, Errortittle.all, :id, :name,  include_blank: '指定なし' %><br>
+                        <%= f.label :level_id_eq, 'BOSSのレベル' %>
+                        <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %><br>
+                    <% end %>
+                </div>
+                <div class="nav__left__4">
+                  <%# ログインしているときは以下を表示するようにしましょう %>
+                  <% if user_signed_in? %>
+                    <%# <div class="nav__right"> %>
+                      <%= link_to "逃げる", destroy_user_session_path, method: :delete , class: :nav__logout %>
+                      <%= link_to "BOSSと戦う", new_prototype_path, class: :nav__btn %>
+                    </div>
+                  <%# // ログインしているときは上記を表示するようにしましょう %>
+                  <%# ログインしていないときは以下を表示するようにしましょう %>
+                  <% else %>
+                    <div class="nav__right">
+                      <%= link_to "戦場に入る", new_user_session_path, class: :nav__btn %>
+                      <%= link_to "挑戦者になる", new_user_registration_path, class: :nav__btn %>
+                    </div>
+                  <% end %>
+                </div>
           </div>
-          <%# ログインしているときは以下を表示するようにしましょう %>
-          <% if user_signed_in? %>
-            <div class="nav__right">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: :nav__logout %>
-              <%= link_to "New Proto", new_prototype_path, class: :nav__btn %>
-            </div>
-          <%# // ログインしているときは上記を表示するようにしましょう %>
-          <%# ログインしていないときは以下を表示するようにしましょう %>
-          <% else %>
-            <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
-            </div>
-          <% end %>
           <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
       </div>
     </header>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
+      <p class="copyright">Copyright © BOSS IS ERROR All rights reserved.</p>
+      <%= link_to "message", posts_index_path, class: :OTHERS %>
     </footer>
   </body>
 </html>

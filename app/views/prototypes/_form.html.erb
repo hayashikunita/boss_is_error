@@ -2,31 +2,32 @@
 
 
   <div class="field">
-    <%= f.label :errortittle, "エラータイトル" %>
+    <%= f.label :errortittle, "BOSSの名前" %>
     <%= f.collection_select(:errortittle_id, Errortittle.all, :id, :name, {}) %>
   </div>
 
   <div class="field">
-    <%= f.label :title, "エラー内容" %><br />
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :catch_copy, "エラーの解決策" %><br />
-    <%= f.text_area :catch_copy, class: :form__text %>
-  </div>
-
-  <div class="field">
-    <%= f.label :folder, "フォルダ" %>
+    <%= f.label :folder, "BOSSの住所" %>
     <%= f.collection_select(:folder_id, Folder.all, :id, :name, {}) %>
   </div>
 
   <div class="field">
-    <%= f.label :level, "レベル" %>
+    <%= f.label :level, "BOSSのレベル" %>
     <%= f.collection_select(:level_id, Level.all, :id, :name, {}) %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :title, "BOSSが出現したコード（詳細）" %><br />
+    <%= f.text_field :title ,class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catch_copy, "BOSSの倒し方（解決策）" %><br />
+    <%= f.text_area :catch_copy, class: :form__text %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "提出する", class: :form__btn  %>
   </div>
 <% end %>

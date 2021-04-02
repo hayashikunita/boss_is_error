@@ -2,19 +2,733 @@
   <div class="inner">
     <div class="user__wrapper">
       <h2 class="page-heading">
-        <%= "#{@user.name}"+"さんの情報"%>
       </h2>
+              <h4>挑戦者の素性</h4>
       <table class="table">
         <tbody>
           <tr>
-            <th class="table__col1">名前</th>
+            <th class="table__col1">挑戦者</th>
             <td class="table__col2"><%= "#{@user.name}" %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">BOSS撃破数</th>
+            <td class="table__col2"><%= "#{@prototypes.length}" %></td>
           </tr>
         </tbody>
       </table>
-      <h2 class="page-heading">
-        <%= "#{@user.name}"+"さんのエラー"%>
-      </h2>
+
+
+        <h4>BOSS撃破数ランキング</h4>
+              <% @all_ranks.each do |user|%>
+                <%= "挑戦者"%><%=  user.name %>
+                <%= "BOSS撃破数"%><%=  user.prototypes.length %>
+                <br>
+
+              <% end %>
+
+
+
+
+<%# ////////////////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////////////// %>
+
+        <h4>BOSS撃破数の詳細</h4>
+
+        <div class="table___table">
+
+            <div class="table___table1">
+                        
+                                <% count1 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.level_id == 1 %>
+                                    <% count1 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% count2 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.level_id == 2 %>
+                                    <% count2 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% count3 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.level_id == 3 %>
+                                    <% count3 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% count4 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.level_id == 4 %>
+                                    <% count4 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                        <% level_array = [
+                        ["others", count1],["ケアレスミス",count2],
+                        ["理解力不足",count3],["知識量不足", count4],
+                        ]%>
+
+
+                        <% level_array_sort = level_array.sort_by(&:last).reverse %>
+                        <h5>BOSSのレベル上位</h5>
+                        <%= level_array_sort[0][0]%> 
+                        <%= level_array_sort[0][1]%> 
+                        <br>
+                        <%= level_array_sort[1][0]%> 
+                        <%= level_array_sort[1][1]%> 
+                        <br>
+                        <%= level_array_sort[2][0]%> 
+                        <%= level_array_sort[2][1]%> 
+
+                        <h5>BOSSのレベル（詳細）</h5>
+
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="table__col1">others</th>
+                            <td class="table__col2"><%= count1 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ケアレスミス</th>
+                            <td class="table__col2"><%= count2 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">理解力不足</th>
+                            <td class="table__col2"><%= count3 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">知識量不足</th>
+                            <td class="table__col2"><%= count4 %></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+            </div>
+            <div class="table___table2">
+                        
+
+
+
+                                <% folder_count1 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 1 %>
+                                    <% folder_count1 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count2 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 2 %>
+                                    <% folder_count2 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count3 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 3 %>
+                                    <% count3 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count4 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 4 %>
+                                    <% folder_count4 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count5 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 5 %>
+                                    <% folder_count5 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count6 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 6 %>
+                                    <% folder_count6 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count7 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 7 %>
+                                    <% folder_count7 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count8 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 8 %>
+                                    <% folder_count8 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count9 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 9 %>
+                                    <% folder_count9 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count10 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 10 %>
+                                    <% folder_count10 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count11 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 11 %>
+                                    <% folder_count11 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count12 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 12 %>
+                                    <% folder_count12 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count13 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 13 %>
+                                    <% folder_count13 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                                <% folder_count14 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                <% if prototype.folder_id == 14 %>
+                                    <% folder_count14 += 1%>
+                                <% end %>
+                            <% end %>
+                        
+                        <% folder_count15 = 0 %>
+                        <% folder_count16 = 0 %>
+                        <% folder_count17 = 0 %>
+                        <% folder_count18 = 0 %>
+                        <% folder_count19 = 0 %>
+                        <% folder_count20 = 0 %>
+                        <% folder_count21 = 0 %>
+                        <% folder_count22 = 0 %>
+                        <% folder_count23 = 0 %>
+                        <% folder_count24 = 0 %>
+                        <% folder_count25 = 0 %>
+                        <% folder_count26 = 0 %>
+                        <% folder_count27 = 0 %>
+                        <% folder_count28 = 0 %>
+                        <% folder_count29 = 0 %>
+                        <% folder_count30 = 0 %>
+                        <% folder_count31 = 0 %>
+                        <% folder_count32 = 0 %>
+                        <% folder_count33 = 0 %>
+                        <% folder_count34 = 0 %>
+                        <% folder_count35 = 0 %>
+                        <% folder_count36 = 0 %>
+                        <% folder_count37 = 0 %>
+                        <% folder_count38 = 0 %>
+                        <% folder_count39 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                    <% if prototype.folder_id == 15 %>
+                                        <% folder_count15 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 16 %>
+                                        <% folder_count16 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 17 %>
+                                        <% folder_count17 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 18 %>
+                                        <% folder_count18 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 19 %>
+                                        <% folder_count19 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 20 %>
+                                        <% folder_count20 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 21 %>
+                                        <% folder_count21 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 22 %>
+                                        <% folder_count22 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 23 %>
+                                        <% folder_count23 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 24 %>
+                                        <% folder_count24 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 25 %>
+                                        <% folder_count25 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 26 %>
+                                        <% folder_count26 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 27 %>
+                                        <% folder_count27 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 28 %>
+                                        <% folder_count28 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 29 %>
+                                        <% folder_count29 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 30 %>
+                                        <% folder_count30 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 31 %>
+                                        <% folder_count31 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 32 %>
+                                        <% folder_count32 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 33 %>
+                                        <% folder_count33 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 34 %>
+                                        <% folder_count34 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 35 %>
+                                        <% folder_count35 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 36 %>
+                                        <% folder_count36 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 37 %>
+                                        <% folder_count37 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 38 %>
+                                        <% folder_count38 += 1%>
+                                    <% end %>
+                                    <% if prototype.folder_id == 39 %>
+                                        <% folder_count39 += 1%>
+                                    <% end %>
+                            <% end %>
+
+                        <% folder_array = [
+                        ["others", folder_count1],["app/controllers",folder_count2],
+                        ["app/models",folder_count3],["app/javascripts", folder_count4],
+                        ["app/views", folder_count5], ["config/routes", folder_count6],
+                        ["db/migrate", folder_count7],["Gemfile", folder_count8],
+                        ["README.md", folder_count9],["app/assetes", folder_count10],
+                        ["app/channels", folder_count11],["app/helpers", folder_count12],
+                        ["app/jobs", folder_count13],["app/mailers", folder_count14],
+                        ["bin", folder_count15],["onfig/environments",folder_count16],
+                        ["config/initializers",folder_count17],["config/locals", folder_count18],
+                        ["config/webpack", folder_count19], ["config/others", folder_count20],
+                        ["db/others", folder_count21],["lib/assets", folder_count22],
+                        ["lib/tasks", folder_count23],["log", folder_count24],
+                        ["node_modules", folder_count25],["public", folder_count26],
+                        ["spec/factories", folder_count27],["spec/helper", folder_count28],
+                        ["spec/models", folder_count29],["spec/requests",folder_count30],
+                        ["storage",folder_count31],["tests", folder_count32],
+                        ["tmp", folder_count33], ["vender", folder_count34],
+                        ["browserslistrc", folder_count35],["gitignore", folder_count36],
+                        ["respec", folder_count37],["rubocop.yml", folder_count38],
+                        ["ruby-version", folder_count39]
+                        ]%>
+
+
+
+
+
+
+
+
+                    <h5>BOSSの住所上位</h5>
+                    
+
+                        <% folder_array_sort = folder_array.sort_by(&:last).reverse %>
+                        <%= folder_array_sort[0][0]%> 
+                        <%= folder_array_sort[0][1]%> 
+                        <br>
+                        <%= folder_array_sort[1][0]%> 
+                        <%= folder_array_sort[1][1]%> 
+                        <br>
+                        <%= folder_array_sort[2][0]%> 
+                        <%= folder_array_sort[2][1]%> 
+                        <br>
+                        <%= folder_array_sort[3][0]%> 
+                        <%= folder_array_sort[3][1]%> 
+                        <br>
+                        <%= folder_array_sort[4][0]%> 
+                        <%= folder_array_sort[4][1]%> 
+                        <br>
+                        <%= folder_array_sort[5][0]%> 
+                        <%= folder_array_sort[5][1]%> 
+                        <br>
+                        <%= folder_array_sort[5][0]%> 
+                        <%= folder_array_sort[5][1]%> 
+                        <br>
+                        <%= folder_array_sort[6][0]%> 
+                        <%= folder_array_sort[6][1]%> 
+                        <br>
+                        <%= folder_array_sort[7][0]%> 
+                        <%= folder_array_sort[7][1]%> 
+                        <br>
+                        <%= folder_array_sort[8][0]%> 
+                        <%= folder_array_sort[8][1]%> 
+
+
+
+
+
+
+
+                        
+                    <h5>BOSSの住所（詳細）</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="table__col1">others</th>
+                            <td class="table__col2"><%= folder_count1 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/controllers</th>
+                            <td class="table__col2"><%= folder_count2 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/models</th>
+                            <td class="table__col2"><%= folder_count3 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/javascripts</th>
+                            <td class="table__col2"><%= folder_count4 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/views</th>
+                            <td class="table__col2"><%= folder_count5 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/routes</th>
+                            <td class="table__col2"><%= folder_count6 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">db/migrate</th>
+                            <td class="table__col2"><%= folder_count7 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">Gemfile</th>
+                            <td class="table__col2"><%= folder_count8 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">README.md</th>
+                            <td class="table__col2"><%= folder_count9 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/assetes</th>
+                            <td class="table__col2"><%= folder_count10 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/channels</th>
+                            <td class="table__col2"><%= folder_count11 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/helpers</th>
+                            <td class="table__col2"><%= folder_count12 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/jobs</th>
+                            <td class="table__col2"><%= folder_count13 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">app/mailers</th>
+                            <td class="table__col2"><%= folder_count14 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">bin</th>
+                            <td class="table__col2"><%= folder_count15 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/environments</th>
+                            <td class="table__col2"><%= folder_count16 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/initializers</th>
+                            <td class="table__col2"><%= folder_count17 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/locals</th>
+                            <td class="table__col2"><%= folder_count18 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/webpack</th>
+                            <td class="table__col2"><%= folder_count19 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">config/others</th>
+                            <td class="table__col2"><%= folder_count20 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">db/others</th>
+                            <td class="table__col2"><%= folder_count21 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">lib/assets</th>
+                            <td class="table__col2"><%= folder_count22 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">lib/tasks</th>
+                            <td class="table__col2"><%= folder_count23 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">log</th>
+                            <td class="table__col2"><%= folder_count24 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">node_modules</th>
+                            <td class="table__col2"><%= folder_count25 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">public</th>
+                            <td class="table__col2"><%= folder_count26 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">spec/factories</th>
+                            <td class="table__col2"><%= folder_count27 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">spec/helper</th>
+                            <td class="table__col2"><%= folder_count28 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">spec/models</th>
+                            <td class="table__col2"><%= folder_count29 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">spec/requests</th>
+                            <td class="table__col2"><%= folder_count30 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">storage</th>
+                            <td class="table__col2"><%= folder_count31 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">tests</th>
+                            <td class="table__col2"><%= folder_count32 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">tmp</th>
+                            <td class="table__col2"><%= folder_count33 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">vender</th>
+                            <td class="table__col2"><%= folder_count34 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">browserslistrc</th>
+                            <td class="table__col2"><%= folder_count35 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">gitignore</th>
+                            <td class="table__col2"><%= folder_count36 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">respec</th>
+                            <td class="table__col2"><%= folder_count37 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">rubocop.yml</th>
+                            <td class="table__col2"><%= folder_count38 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ruby-version</th>
+                            <td class="table__col2"><%= folder_count39 %></td>
+                        </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+
+            </div>
+            <div class="table___table3">
+                        <% errortittle_count1 = 0 %>
+                        <% errortittle_count2 = 0 %>
+                        <% errortittle_count3 = 0 %>
+                        <% errortittle_count4 = 0 %>
+                        <% errortittle_count5 = 0 %>
+                        <% errortittle_count6 = 0 %>
+                        <% errortittle_count7 = 0 %>
+                        <% errortittle_count8 = 0 %>
+                        <% errortittle_count9 = 0 %>
+                        <% errortittle_count10 = 0 %>
+                        <% errortittle_count11 = 0 %>
+                        <% errortittle_count12 = 0 %>
+                        <% errortittle_count13 = 0 %>
+                        <% errortittle_count14 = 0 %>
+                            <% @prototypes.each do |prototype| %>
+                                    <% if prototype.errortittle_id == 1 %>
+                                        <% errortittle_count1 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 2 %>
+                                        <% errortittle_count2 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 3 %>
+                                        <% errortittle_count3 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 4 %>
+                                        <% errortittle_count4 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 5 %>
+                                        <% errortittle_count5 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 6 %>
+                                        <% errortittle_count6 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 7 %>
+                                        <% errortittle_count7 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 8 %>
+                                        <% errortittle_count8 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 9 %>
+                                        <% errortittle_count9 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 10 %>
+                                        <% errortittle_count10 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 11 %>
+                                        <% errortittle_count11 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 12 %>
+                                        <% errortittle_count12 += 1%>
+                                    <% end %>
+                                    <% if prototype.errortittle_id == 13 %>
+                                        <% errortittle_count13 += 1%>
+                                    <% end %>
+                            <% end %>
+                    <h5>BOSSの名前上位</h5>
+                        <% errortittle_array = [
+                        ["others", errortittle_count1],["NameError",errortittle_count2],
+                        ["NoMethodError",errortittle_count3],["Actioncontroller", errortittle_count4],
+                        ["Template is missing", errortittle_count5], ["ArgumentError", errortittle_count6],
+                        ["LoadError", errortittle_count7],["SyntaxError", errortittle_count8],
+                        ["RoutingError", errortittle_count9],["PG::", errortittle_count10],
+                        ["ActiveRecord::", errortittle_count11],["ActionView::", errortittle_count12],
+                        ["ExecJs::", errortittle_count13],["Mysql2::", errortittle_count14]
+                        ]%>
+                        <% errortittle_array_sort = errortittle_array.sort_by(&:last).reverse %>
+
+                        <%= errortittle_array_sort[0][0]%> 
+                        <%= errortittle_array_sort[0][1]%> 
+                        <br>
+                        <%= errortittle_array_sort[1][0]%> 
+                        <%= errortittle_array_sort[1][1]%> 
+                        <br>
+                        <%= errortittle_array_sort[2][0]%> 
+                        <%= errortittle_array_sort[2][1]%> 
+                        <br>
+                        <%= errortittle_array_sort[3][0]%> 
+                        <%= errortittle_array_sort[3][1]%> 
+                        <br>
+
+                        <%= errortittle_array_sort[4][0]%> 
+                        <%= errortittle_array_sort[4][1]%> 
+                        <br>
+
+                        <%= errortittle_array_sort[5][0]%> 
+                        <%= errortittle_array_sort[5][1]%> 
+                        <br>
+
+                        <%= errortittle_array_sort[6][0]%> 
+                        <%= errortittle_array_sort[6][1]%> 
+                        <br>
+
+                        <%= errortittle_array_sort[7][0]%> 
+                        <%= errortittle_array_sort[7][1]%> 
+
+
+                        
+                    <h5>BOSSの名前上位</h5>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="table__col1">others</th>
+                            <td class="table__col2"><%= errortittle_count1 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">NameError</th>
+                            <td class="table__col2"><%= errortittle_count2 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">NameError</th>
+                            <td class="table__col2"><%= errortittle_count3 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">Actioncontroller</th>
+                            <td class="table__col2"><%= errortittle_count4 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">Template is missing</th>
+                            <td class="table__col2"><%= errortittle_count5 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ArgumentError</th>
+                            <td class="table__col2"><%= errortittle_count6 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">LoadError</th>
+                            <td class="table__col2"><%= errortittle_count7 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">SyntaxError</th>
+                            <td class="table__col2"><%= errortittle_count8 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">RoutingError</th>
+                            <td class="table__col2"><%= errortittle_count9 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">PG::</th>
+                            <td class="table__col2"><%= errortittle_count10 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ActiveRecord::</th>
+                            <td class="table__col2"><%= errortittle_count11 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ActionView::</th>
+                            <td class="table__col2"><%= errortittle_count12 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">ExecJs::</th>
+                            <td class="table__col2"><%= errortittle_count13 %></td>
+                        </tr>
+                        <tr>
+                            <th class="table__col1">Mysql2::</th>
+                            <td class="table__col2"><%= errortittle_count14 %></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+            </div>
+        </div>
+
+
+<%# ///////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////// %>
+
+
+
       <div class="user__card">
           <%= render partial:'prototypes/prototype', collection: @prototypes %>
         <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>

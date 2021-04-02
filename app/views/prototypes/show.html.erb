@@ -3,26 +3,34 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-            <%= @prototype.folder.name%>
-            <%= @prototype.level.name%>
-             <%= @prototype.errortittle.name%>
-        <%= "エラー内容
-        #{@prototype.title}"%>
       </p>
 
       <div class="prototype__image">
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title">エラーの解決策</p>
+            <h3>BOSSの名前            </h3><%= @prototype.errortittle.name%>
+            <h3>BOSSの住所            </h3> <%= @prototype.folder.name%>
+            <h3>BOSSのレベル           </h3><%= @prototype.level.name%>
+            <h3>BOSSが出現したコード    </h3><%= @prototype.title %>
+          <br>
+           <br>
+          <p class="detail__title">BOSSの倒し方</p>
+          <br>
+          <br>
+
           <p class="detail__message">
             <%= @prototype.catch_copy %>
           </p>
+          <br>
+          <br>
+          <br>
+
           <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
           <% if user_signed_in? && current_user.id == @prototype.user_id %>
             <div class="prototype__manage">
-              <%= link_to "編集する", edit_prototype_path(@prototype.id), class: :prototype__btn %>
-              <%= link_to "削除する", prototype_path(@prototype.id), class: :prototype__btn, method: :delete %>
+              <%= link_to "変更する", edit_prototype_path(@prototype.id), class: :prototype__btn %>
+              <%= link_to "消す", prototype_path(@prototype.id), class: :prototype__btn, method: :delete %>
             </div>
           <% end %>
           <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
@@ -33,7 +41,7 @@
         <% if user_signed_in? %>
           <%= form_with(model: [@prototype,@comment], local: true) do |f| %>
             <div class="field">
-              <%= f.label :text, "コメント" %><br />
+              <%= f.label :text, "陰口" %><br />
               <%= f.text_field :text %>
             </div>
             <div class="actions">

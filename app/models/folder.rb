@@ -17,7 +17,7 @@ class Folder < ActiveHash::Base
     {id: 30, name: 'spec/requests'}, {id: 31, name: 'storage'}, {id: 32, name: 'tests'}, 
     {id: 33, name: 'tmp'}, {id: 34, name: 'vender'}, {id: 35, name: 'browserslistrc'}, 
     {id: 36, name: 'gitignore'}, {id: 37, name: 'respec'}, {id: 38, name: 'rubocop.yml'}, 
-    {id: 39, name: 'ruby-version'}, {id: 40, name: 'others'}
+    {id: 39, name: 'ruby-version'}
      ]
 
      include ActiveHash::Associations

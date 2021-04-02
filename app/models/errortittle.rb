@@ -14,7 +14,7 @@ class Errortittle < ActiveHash::Base
     {id: 11, name: 'ActiveRecord::'},
     {id: 12, name: 'ActionView::'},
     {id: 13, name: 'ExecJs::'},
-    {id: 13, name: 'Mysql2::'},
+    {id: 14, name: 'Mysql2::'},
      ]
      
      include ActiveHash::Associations
