@@ -50,8 +50,12 @@ class PrototypesController < ApplicationController
   end
 
   def search
-    @prototypes = Prototype.search(params[:keyword])
     @prototype = @p.result
+  end
+
+
+  def free_search
+    @prototypes = Prototype.search(params[:keyword])
   end
 
   private

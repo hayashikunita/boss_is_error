@@ -1,0 +1,23 @@
+
+<main class="main">
+  <div class="inner">
+    
+    <div class="card__wrapper">
+
+
+                <% if @prototypes.length !=0 %>
+                  <% @prototypes.each do |prototype| %>
+                    <%= render partial: 'prototypes/prototype', locals: { prototype: prototype } %>
+
+
+                  <% end %>
+                <% else %>
+                  該当する商品はありません
+                <% end %>
+
+
+                <%= @prototypes.length %>
+
+    </div>
+  </div>
+</main>

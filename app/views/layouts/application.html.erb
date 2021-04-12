@@ -19,8 +19,8 @@
                     <%= link_to image_tag("logo.png", class: :logo), prototypes_path %>
                 </div>
                 <div class="nav__left__2">
-                    <%= form_with(url: search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
-                    <%= "BOSSを" %>
+                    <%= form_with(url: free_search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
+                        <%= "BOSSを" %>
                         <%= form.submit "検索", class: "search-btn" %><br>
                         <%= form.text_field :keyword, placeholder: "フリーワード", class: "search-input" %>
                     <% end %>

@@ -20,7 +20,7 @@ class Prototype < ApplicationRecord
   def self.search(search)
     if search != ""
       Prototype.where('title LIKE(?)', "%#{search}%").
-      or (Prototype.where('catch_copy LIKE(?)', "%#{search}%"))
+      or(where('catch_copy LIKE(?)', "%#{search}%"))
     else
       Prototype.all
     end
