@@ -14,5 +14,6 @@ Rails.application.routes.draw do
       get 'free_search'
     end
   end
-  resources :users, only: :show
+  resources :users do
+  end
 end
