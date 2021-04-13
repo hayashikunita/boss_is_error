@@ -1,6 +1,7 @@
 <%= form_with model: @prototype, local: true do |f|%>
 
 
+
   <div class="field">
     <%= f.label :errortittle, "BOSSの名前" %>
     <%= f.collection_select(:errortittle_id, Errortittle.all, :id, :name, {}) %>
