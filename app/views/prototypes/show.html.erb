@@ -9,13 +9,13 @@
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
-            <h3>BOSSの名前            </h3><%= @prototype.errortittle.name%>
-            <h3>BOSSの住所            </h3> <%= @prototype.folder.name%>
-            <h3>BOSSのレベル           </h3><%= @prototype.level.name%>
-            <h3>BOSSが出現したコード    </h3><%= @prototype.title %>
+            <h3>エラー            </h3><%= @prototype.errortittle.name%>
+            <h3>エラーのフォルダ            </h3> <%= @prototype.folder.name%>
+            <h3>エラーのレベル           </h3><%= @prototype.level.name%>
+            <h3>エラーのコード    </h3><%= @prototype.title %>
           <br>
            <br>
-          <p class="detail__title">BOSSの倒し方</p>
+          <p class="detail__title">エラーの対処法</p>
           <br>
           <br>
 
@@ -41,7 +41,7 @@
         <% if user_signed_in? %>
           <%= form_with(model: [@prototype,@comment], local: true) do |f| %>
             <div class="field">
-              <%= f.label :text, "陰口" %><br />
+              <%= f.label :text, "コメント" %><br />
               <%= f.text_field :text %>
             </div>
             <div class="actions">

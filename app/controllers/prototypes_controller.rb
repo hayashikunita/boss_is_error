@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   before_action :search_prototype, only: [:index, :search]
 
   def index
-    @prototypes = Prototype.all
+  @prototypes = Prototype.all.order(id: "DESC")
   end
 
   def new

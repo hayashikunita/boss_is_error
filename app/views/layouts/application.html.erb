@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boss is error</title>
+    <title>Boss is Error</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,24 +16,24 @@
         <div class="nav">
           <div class="nav__left">
                 <div class="nav__left__1">
-                    <%= link_to image_tag("logo.png", class: :logo), prototypes_path %>
+                    <%= link_to image_tag("railslogo.png", class: :logo), prototypes_path %>
                 </div>
                 <div class="nav__left__2">
                     <%= form_with(url: free_search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
-                        <%= "BOSSを" %>
+                        <%= "エラー" %>
                         <%= form.submit "検索", class: "search-btn" %><br>
                         <%= form.text_field :keyword, placeholder: "フリーワード", class: "search-input" %>
                     <% end %>
                 </div>
                 <div class="nav__left__3">
                     <%= search_form_for @p, url: search_prototypes_path do |f| %>
-                    <%= "BOSSを" %><%= f.submit '検索', class: "search-btn" %>
+                    <%= "エラーを" %><%= f.submit '検索', class: "search-btn" %>
                         <br>
-                        <%= f.label :folder_id_eq, 'BOSSの住所' %>
+                        <%= f.label :folder_id_eq, 'フォルダ' %>
                         <%= f.collection_select :folder_id_eq, Folder.all, :id, :name,  include_blank: '指定なし' %><br>
-                        <%= f.label :errortittle_id_eq, 'BOSSの名前' %>
+                        <%= f.label :errortittle_id_eq, 'エラー' %>
                         <%= f.collection_select :errortittle_id_eq, Errortittle.all, :id, :name,  include_blank: '指定なし' %><br>
-                        <%= f.label :level_id_eq, 'BOSSのレベル' %>
+                        <%= f.label :level_id_eq, 'レベル' %>
                         <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %><br>
                     <% end %>
                 </div>
@@ -41,15 +41,15 @@
                   <%# ログインしているときは以下を表示するようにしましょう %>
                   <% if user_signed_in? %>
                     <%# <div class="nav__right"> %>
-                      <%= link_to "逃げる", destroy_user_session_path, method: :delete , class: :nav__logout %>
-                      <%= link_to "BOSSと戦う", new_prototype_path, class: :nav__btn %>
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: :nav__logout %>
+                      <%= link_to "エラー投稿", new_prototype_path, class: :nav__btn %>
                     </div>
                   <%# // ログインしているときは上記を表示するようにしましょう %>
                   <%# ログインしていないときは以下を表示するようにしましょう %>
                   <% else %>
                     <div class="nav__right">
-                      <%= link_to "戦場に入る", new_user_session_path, class: :nav__btn %>
-                      <%= link_to "挑戦者になる", new_user_registration_path, class: :nav__btn %>
+                      <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+                      <%= link_to "サインイン", new_user_registration_path, class: :nav__btn %>
                     </div>
                   <% end %>
                 </div>
@@ -60,7 +60,7 @@
     </header>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © BOSS IS ERROR All rights reserved.</p>
+      <p class="copyright">Copyright © Boss is Error All rights reserved.</p>
       <%= link_to "message", posts_index_path, class: :OTHERS %>
     </footer>
   </body>

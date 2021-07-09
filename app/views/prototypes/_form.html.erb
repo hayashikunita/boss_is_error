@@ -3,28 +3,28 @@
 
 
   <div class="field">
-    <%= f.label :errortittle, "BOSSの名前" %>
+    <%= f.label :errortittle, "エラー" %>
     <%= f.collection_select(:errortittle_id, Errortittle.all, :id, :name, {}) %>
   </div>
 
   <div class="field">
-    <%= f.label :folder, "BOSSの住所" %>
+    <%= f.label :folder, "フォルダ" %>
     <%= f.collection_select(:folder_id, Folder.all, :id, :name, {}) %>
   </div>
 
   <div class="field">
-    <%= f.label :level, "BOSSのレベル" %>
+    <%= f.label :level, "レベル" %>
     <%= f.collection_select(:level_id, Level.all, :id, :name, {}) %>
   </div>
 
 
   <div class="field">
-    <%= f.label :title, "BOSSが出現したコード（詳細）" %><br />
+    <%= f.label :title, "エラーが出現したコード（詳細）" %><br />
     <%= f.text_field :title ,class: :form__text %>
   </div>
 
   <div class="field">
-    <%= f.label :catch_copy, "BOSSの倒し方（解決策）" %><br />
+    <%= f.label :catch_copy, "エラーの対策" %><br />
     <%= f.text_area :catch_copy, class: :form__text %>
   </div>
 
