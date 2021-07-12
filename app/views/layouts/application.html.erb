@@ -15,28 +15,42 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
+                <div id="nav-drawer">
+                    <input id="nav-input" type="checkbox" class="nav-unshown">
+                    <label id="nav-open" for="nav-input"><span></span></label>
+                    <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                    <div id="nav-content">
+                        <div class="nav-content-under">
+                            <div class="nav__left__2">
+                            <br>
+                                <%= form_with(url: free_search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
+                                    <%= "エラーを" %>
+                                    <%= form.submit "検索", class: "search-btn" %>
+                                    <br>
+                                    <%= form.text_field :keyword, placeholder: "フリーワード", class: "search-input" %>
+                                <% end %>
+                            <br>
+                            </div>
+                            <div class="nav__left__3">
+                            <br>
+                                <%= search_form_for @p, url: search_prototypes_path do |f| %>
+                                <%= "エラーを" %><%= f.submit '検索', class: "search-btn" %>
+                                    <br>
+                                    <%= f.label :folder_id_eq, 'フォルダ' %><br>
+                                    <%= f.collection_select :folder_id_eq, Folder.all, :id, :name,  include_blank: '指定なし' %><br>
+                                    <%= f.label :errortittle_id_eq, 'エラー' %><br>
+                                    <%= f.collection_select :errortittle_id_eq, Errortittle.all, :id, :name,  include_blank: '指定なし' %><br>
+                                    <%= f.label :level_id_eq, 'レベル' %><br>
+                                    <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %><br>
+                                <% end %>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
                 <div class="nav__left__1">
                     <%= link_to image_tag("railslogo.png", class: :logo), prototypes_path %>
-                </div>
-                <div class="nav__left__2">
-                    <%= form_with(url: free_search_prototypes_path, local: true, method: :get, class: "search-form") do |form| %>
-                        <%= "エラー" %>
-                        <%= form.submit "検索", class: "search-btn" %><br>
-                        <%= form.text_field :keyword, placeholder: "フリーワード", class: "search-input" %>
-                    <% end %>
-                </div>
-                <div class="nav__left__3">
-                    <%= search_form_for @p, url: search_prototypes_path do |f| %>
-                    <%= "エラーを" %><%= f.submit '検索', class: "search-btn" %>
-                        <br>
-                        <%= f.label :folder_id_eq, 'フォルダ' %>
-                        <%= f.collection_select :folder_id_eq, Folder.all, :id, :name,  include_blank: '指定なし' %><br>
-                        <%= f.label :errortittle_id_eq, 'エラー' %>
-                        <%= f.collection_select :errortittle_id_eq, Errortittle.all, :id, :name,  include_blank: '指定なし' %><br>
-                        <%= f.label :level_id_eq, 'レベル' %>
-                        <%= f.collection_select :level_id_eq, Level.all, :id, :name,  include_blank: '指定なし' %><br>
-                    <% end %>
-                </div>
+                </div> 
                 <div class="nav__left__4">
                   <%# ログインしているときは以下を表示するようにしましょう %>
                   <% if user_signed_in? %>

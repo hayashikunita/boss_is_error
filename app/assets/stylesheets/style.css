@@ -36,6 +36,40 @@ a {
 
 /* ヘッダー */
 
+
+.nav-content-under {
+  font-weight: bold;
+}
+
+div#nav-content {
+  background: #F4F4F4;
+  color: black;
+}
+
+input.search-btn {
+  margin-bottom: 20px;
+}
+
+
+.nav__left__2 {
+  width: 142px;
+}
+
+
+div#nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+div#nav-drawer {
+  width: 208px;
+}
+
 input#keyword {
   margin-top: 3px;
 }
@@ -102,7 +136,106 @@ input#keyword {
 
 }
 
+/* ？？？？？？？？？？？？？？？？？ */
 
+header {
+  padding:10px;
+  background: #ccc;
+}
+
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーの形をCSSで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: white;
+
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒箇所*/
+#nav-close {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*メニューの中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 90%;
+  max-width: 330px;/*最大幅（お好みで調整を）*/
+  height: 100%;
+  transition: .3s ease-in-out;
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);
+}
+
+/*チェックがついたら表示させる*/
+#nav-input:checked ~ #nav-close {
+  display: block;
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+.header-logo-menu{
+ display: flex;
+ display: -moz-flex;
+ display: -o-flex;
+ display: -webkit-flex;
+ display: -ms-flex;
+ flex-direction: row;
+ -moz-flex-direction: row;
+ -o-flex-direction: row;
+ -webkit-flex-direction: row;
+ -ms-flex-direction: row;
+}
+
+
+
+/* ？？？？？？？？？？？？？？？？？ */
 /* フォーム周り */
 
 
@@ -182,10 +315,11 @@ input#keyword {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    border: solid #eee 2px;
 }
 
 
-}
 .card__img {
   margin-bottom: 16px;
 }
@@ -339,10 +473,35 @@ main.main {
 
 .OTHERS {
   margin-left: 10px;
+  color: #c52f24;
 }
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
+
+  .nav__left__4 {
+    font-size: 12px;
+  } 
+
+
+  a.nav__btn {
+    width: 82.42px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+  }
+
+  div#nav-drawer {
+    width: 82.41px;
+}
+
+  .nav__right {
+    font-size: 12px;
+  }
+
+
   .inner {
     width: 90%;
     margin: 0 auto;
@@ -353,7 +512,8 @@ main.main {
   .card {
     width: 48%;
     margin-bottom: 40px;
-    background: #f7f7f7;
+    background: #f4f4f4;
+    border: solid #eee 2px;
   }
   .prototype_image{
     width: 60%;
@@ -362,9 +522,11 @@ main.main {
 
  /* スマホ表示 */
 @media (max-width: 599px) {
-  .logo {
-    width: 120px;
+
+  .nav__left__4 {
+    font-size: 12px;
   }
+
   .page-heading {
     font-size: 20px;
   }
