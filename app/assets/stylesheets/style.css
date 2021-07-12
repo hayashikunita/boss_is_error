@@ -36,6 +36,11 @@ a {
 
 /* ヘッダー */
 
+.user__wrapper {
+  color: black;
+}
+
+
 
 .nav-content-under {
   font-weight: bold;
@@ -79,7 +84,6 @@ input#keyword {
 .header {
   background-color: #c52f24;
   margin-bottom: 48px;
-  margin-top: 5px;
   padding: 20px 0;
 
 
@@ -452,8 +456,9 @@ main.main {
 }
 
 .table___table {
-  display: flex;  
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 

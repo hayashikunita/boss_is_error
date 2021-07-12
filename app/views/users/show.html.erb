@@ -11,17 +11,17 @@
             <td class="table__col2"><%= "#{@user.name}" %></td>
           </tr>
           <tr>
-            <th class="table__col1">ケアレスミスの数</th>
+            <th class="table__col1">エラーの数</th>
             <td class="table__col2"><%= "#{@prototypes.length}" %></td>
           </tr>
         </tbody>
       </table>
 
 
-        <h4>ケアレスミス数ランキング</h4>
+        <h4>エラー数ランキング</h4>
               <% @all_ranks.each do |user|%>
                 <%= "ユーザー"%><%=  user.name %>
-                <%= "ケアレスミスの数"%><%=  user.prototypes.length %>
+                <%= "エラーの数"%><%=  user.prototypes.length %>
                 <br>
 
               <% end %>
@@ -31,7 +31,7 @@
 <%# ///////////////////////////////////////////////////////////////////////// %>
 <%# ///////////////////////////////////////////////////////////////////////// %>
 
-        <h4>ケアレスミスの詳細</h4>
+        <h4>エラーの詳細</h4>
 
         <div class="table___table">
 
@@ -66,13 +66,13 @@
                             <% end %>
                         
                         <% level_array = [
-                        ["others", count1],["ケアレスミス",count2],
+                        ["others", count1],["エラー",count2],
                         ["理解力不足",count3],["知識量不足", count4],
                         ]%>
 
 
                         <% level_array_sort = level_array.sort_by(&:last).reverse %>
-                        <h5>ケアレスミスのレベル上位</h5>
+                        <h5>エラーのレベル上位</h5>
                         <%= level_array_sort[0][0]%> 
                         <%= level_array_sort[0][1]%> 
                         <br>
@@ -82,7 +82,7 @@
                         <%= level_array_sort[2][0]%> 
                         <%= level_array_sort[2][1]%> 
 
-                        <h5>ケアレスミスのレベル</h5>
+                        <h5>エラーのレベル</h5>
 
 
                     <table class="table">
@@ -344,7 +344,7 @@
 
 
 
-                    <h5>ケアレスミスのフォルダ上位</h5>
+                    <h5>エラーのフォルダ上位</h5>
                     
 
                         <% folder_array_sort = folder_array.sort_by(&:last).reverse %>
@@ -385,7 +385,7 @@
 
 
                         
-                    <h5>ケアレスミスのフォルダ</h5>
+                    <h5>エラーのフォルダ</h5>
                     <table class="table">
                         <tbody>
                         <tr>
@@ -610,7 +610,7 @@
                                         <% errortittle_count13 += 1%>
                                     <% end %>
                             <% end %>
-                    <h5>ケアレスミス</h5>
+                    <h5>エラー</h5>
                         <% errortittle_array = [
                         ["others", errortittle_count1],["NameError",errortittle_count2],
                         ["NoMethodError",errortittle_count3],["Actioncontroller", errortittle_count4],
@@ -652,7 +652,7 @@
 
 
                         
-                    <h5>ケアレスミス上位</h5>
+                    <h5>エラー上位</h5>
 
                     <table class="table">
                         <tbody>
