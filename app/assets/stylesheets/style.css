@@ -322,6 +322,12 @@ header {
     border: solid #eee 2px;
 }
 
+.card__body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
 
 .card__img {
   margin-bottom: 16px;
