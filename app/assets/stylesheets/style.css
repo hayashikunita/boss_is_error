@@ -34,6 +34,8 @@ a {
   color: #3b4043;
 }
 
+
+
 /* ヘッダー */
 
 .user__wrapper {
@@ -464,6 +466,7 @@ main.main {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 
